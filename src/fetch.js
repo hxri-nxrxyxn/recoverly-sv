@@ -23,7 +23,7 @@ async function post(endpoint, data) {
             body: JSON.stringify(data),
         });
         if (!response.ok) {
-            alert(`Network response was not ok (${response})`);
+            console.log(`Network response was not ok (${response})`);
         }
         return await response.json();
     } catch (error) {
