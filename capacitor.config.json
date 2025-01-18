@@ -1,5 +1,8 @@
 {
   "appId": "com.laddu.recoverly",
   "appName": "recoverly",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+    } 
 }
