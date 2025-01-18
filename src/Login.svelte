@@ -1,6 +1,9 @@
-<a href="/register">register</a>
+<script>
+    import { Link } from "svelte-routing";
+</script>
 
 <main>
+    <a href="/register">register</a>
     <h1>Let's beat our <span>addictions</span></h1>
     <div class="form__box">
         <div class="form__link">
@@ -12,4 +15,18 @@
             <input type="password" placeholder="Password" required />
         </div>
     </div>
+    <div class="btn__box">
+        <Link to="/org-login">
+            <button class="outlined">ORGANIZER LOGIN</button>
+        </Link>
+        <Link>
+            <button class="solid">LOGIN</button>
+        </Link>
+        <p class="foot">
+            Don't have an account?<Link to="/register"><b>Create one</b></Link>
+        </p>
+    </div>
 </main>
+
+<style>
+</style>
