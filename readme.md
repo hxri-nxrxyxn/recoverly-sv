@@ -60,7 +60,8 @@ curl --location 'https://hardly-genuine-yeti.ngrok-free.app/api/v1/login' \
   ```
  ### **Error Responses**
  #### Status Code: `400 Bad Request`
-Description: Malformed or missing fields.
+ Malformed or missing fields.
+ 
 Example Response:
 ```json
 {
@@ -69,7 +70,7 @@ Example Response:
 ```
 #### Status Code: `401 Unauthorized`
 
-Description: Invalid email or password.
+Invalid email or password.
 Example Response:
 ```json
 {
@@ -171,6 +172,80 @@ api.Post("/register", controller.CreateUser(db))
 ##### This handler manages the registration process by validating the provided data, checking if the email is already in use, and then saving the new user to the database.
 
 
+
+
+### **3. /users**
+### **URL:** `api/v1/users`
+#### METHOD: `GET`
+
+The `/users` endpoint allows you to retrieve a list of all registered users. It provides the user information such as `id`, `name`, and `email`.
+
+#### **Example Request:**
+
+```bash
+curl --location '/api/v1/users' \
+--header 'Content-Type: application/json'
+```
+**Response format :**
+| Field     | Type     | Description                                |
+|-----------|----------|--------------------------------------------|
+| `id`      | `int`    | The unique identifier for the user.        |
+| `name`    | `string` | The name of the user.                      |
+| `email`   | `string` | The email address of the user.             |
+
+### **Success Response**
+#### Status Code: `200 OK`
+Response Body:
+```json
+[
+  {
+    "id": 1,
+    "name": "Hari Doe",
+    "email": "hari_doe@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Johhny Sebastian",
+    "email": "janeSeban@email.com"
+  }
+]
+```
+```bash
+curl --location '' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+  {
+    "id": 1,
+    "name": "Hari Doe",
+    "email": "hari_doe@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Johhny Sebastian",
+    "email": "janeSeban@email.com"
+  }
+]'
+```
+### **Error Responses**
+#### Status Code: `500 Internal Server Error`
+An error occurred while fetching the users from the database.
+
+Example Response:
+```json
+{
+  "error": "Unable to fetch users."
+}
+```
+#### The endpoint is defined in Go as follows:
+```go
+api.Get("/users", controller.GetUsers(db))
+```
+#### **Handler: controller.GetUsers(db)**
+ The handler controller.GetUsers(db) is responsible for querying the database and returning the results.
+
+
+ 
+ 
 
 
 
