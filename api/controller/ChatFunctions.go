@@ -34,9 +34,10 @@ func CreateChat(db *gorm.DB) fiber.Handler {
 
 func GetChats(db *gorm.DB) fiber.Handler {
 	return func(c *fiber.Ctx) error {
+		group := c.Params("group")
 		chats := new([]models.Chat)
 
-		err := db.Find(chats).Error
+		err := db.Where("chat_group = ?", group).Find(chats).Error
 		if err != nil {
 			return c.Status(500).JSON(fiber.Map{
 				"message": "Could not retrieve chats",
