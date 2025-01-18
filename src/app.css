@@ -11,8 +11,116 @@ body {
     font-family: "Inter";
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+:root {
+    --color-primary: #6C5CE7;
+    --color-primary-light: #A29BFE;
+    --color-light: #DFE6E955;
+    --color-text: #2D343699;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1;
+    padding-bottom: 2rem;
+}
+
+h1 span {
+    color: var(--color-primary-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--color-primary)
+}
+
 .emergency {
     position: fixed;
     bottom: 10px;
     right: 10px;
+}
+
+label {
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+input {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    outline: 0;
+    background-color: var(--color-light);
+    border-bottom: 2px solid var(--color-light);
+    font-family: "Inter";
+}
+
+input:focus {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+button {
+    font-family: "Inter";
+    font-weight: 600;
+}
+
+button.outlined {
+    display: block;
+    width: 100%;
+    border: 2px solid var(--color-primary);
+    background-color: white;
+    color: var(--color-primary);
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+}
+
+button.solid {
+    display: block;
+    width: 100%;
+    border: 0;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.btn__box {
+    margin-top: 30vh;
+}
+
+.foot {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.progress {
+    color: transparent;
+    background: var(--color-light);
+    margin-bottom: 1rem;
+}
+
+.progressi {
+    width: 0%;
+    background: var(--color-primary);
+    border-radius: 0.5rem;
 }

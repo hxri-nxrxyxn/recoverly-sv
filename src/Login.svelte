@@ -38,10 +38,12 @@
             />
         </div>
     </div>
+
     <div class="btn__box">
         <Link to="/org-login">
             <button class="outlined">ORGANIZER LOGIN</button>
         </Link>
+        <br />
         <button class="solid" onclick={doPost}>LOGIN</button>
         <p class="foot">
             Don't have an account?<Link to="/register"><b>Create one</b></Link>

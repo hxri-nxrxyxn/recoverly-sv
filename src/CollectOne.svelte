@@ -33,12 +33,7 @@
 </main>
 
 <style>
-    .progress {
-        color: transparent;
-        background: red;
-    }
     .progressi {
         width: 30%;
-        background: blue;
     }
 </style>

@@ -41,16 +41,11 @@
 </main>
 
 <style>
-    .progress {
-        color: transparent;
-        background: red;
-    }
-    .progressi {
-        width: 100%;
-        background: blue;
-    }
     .option__row {
         justify-content: space-between;
         display: flex;
+    }
+    .progressi {
+        width: 89%;
     }
 </style>
