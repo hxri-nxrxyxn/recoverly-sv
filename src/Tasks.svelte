@@ -1,5 +1,11 @@
 <script>
     import { Link } from "svelte-routing";
+    import { get } from "./fetch";
+    const doPost = async () => {
+        const res = await get("/");
+        console.log(res);
+    };
+    doPost();
 </script>
 
 <main>
@@ -15,12 +21,8 @@
         <div class="task">
             <h1>Week 1</h1>
             <p>Get started by</p>
-            <li>
-                <p>task 1</p>
-            </li>
-            <li>
-                <p>task 2</p>
-            </li>
+            <p class="task--sub">task 1</p>
+            <p class="task--sub">task 2</p>
         </div>
     </div>
     <div class="btn__box">
