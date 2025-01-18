@@ -179,11 +179,13 @@ func Login(db *gorm.DB) func(*fiber.Ctx) error {
 			})
 		}
 
-		if user.Password != userData.Password {
+		err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(userData.Password))
+		if err != nil {
 			return c.Status(402).JSON(fiber.Map{
-				"message": "Password is incorrect",
+				"message": "Invalid Password",
 			})
 		}
+
 
 		return c.Status(200).JSON(fiber.Map{
 			"message": "User logged in",
