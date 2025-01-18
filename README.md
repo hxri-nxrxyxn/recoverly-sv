@@ -58,7 +58,7 @@ curl --location 'https://hardly-genuine-yeti.ngrok-free.app/api/v1/login' \
   },
   "expires_in": 3600 } '
   ```
- ### **Error Responses**
+ #### **Error Responses**
  ##### Status Code: `400 Bad Request`
 Description: Malformed or missing fields.
 Example Response:
