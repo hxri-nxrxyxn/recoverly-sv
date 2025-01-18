@@ -13,7 +13,6 @@ html {
 body {
     padding: 2rem;
     font-family: "Inter";
-    padding-bottom: 20vh;
 }
 
 a {
@@ -23,7 +22,7 @@ a {
 
 p {
     color: var(--color-text);
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.5;
 }
 
@@ -113,24 +112,17 @@ button.solid {
     font-weight: 700;
 }
 
-.btn__box {
-    position: fixed;
-    display: block;
-    width: calc(100vw - 4rem);
-    bottom: 1rem;
-    left: 0;
-    margin: 2rem;
-}
 
 .foot {
-    font-size: 0.75rem;
-    text-align: center;
     margin-top: 1rem;
+    text-align: center;
+    font-size: 0.75rem;
 }
 
 .progress {
-    color: transparent;
     background: var(--color-light);
+    border-radius: 0.5rem;
+    color: transparent;
     margin-bottom: 1rem;
 }
 
@@ -160,4 +152,12 @@ button.solid {
     border: 2px solid var(--color-primary);
     background-color: white;
     color: var(--color-text);
+}
+
+img.hero {
+    width: calc(100vw - 4rem);
+}
+
+.btn__box {
+    margin-top: 10vh;
 }

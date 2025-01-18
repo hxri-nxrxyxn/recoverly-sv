@@ -1,6 +1,7 @@
 <script>
     import { Link } from "svelte-routing";
     import { post } from "./fetch";
+    import Flower from "./assets/undraw_order-flowers_81uq.png";
 
     let email = $state("");
     let password = $state("");
@@ -18,6 +19,7 @@
 
 <main>
     <h1>Let's beat our <span>addictions</span></h1>
+    <img class="hero" src={Flower} alt="" />
     <div class="form__box">
         <div class="form__link">
             <label>Email Id</label>
