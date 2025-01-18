@@ -15,3 +15,11 @@
         </Link>
     </div>
 </main>
+
+<style>
+    .scan__cam {
+        height: 50vh;
+        background-color: var(--color-light);
+        margin: 0.5rem 0 2rem 0;
+    }
+</style>

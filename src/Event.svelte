@@ -18,6 +18,11 @@
             <p><b>10AM</b> 11 - 09 - 2024</p>
         </div>
     </div>
+    <div class="btn__box">
+        <Link to="/terms">
+            <button class="solid">REGISTER</button>
+        </Link>
+    </div>
 </main>
 
 <style>

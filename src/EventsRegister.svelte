@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <h1>Local events <span>Near You</span></h1>
+    <h1>Local events <br /><span>Near You</span></h1>
 
     <div class="card">
         <div class="card__image">
@@ -45,3 +45,9 @@
         </Link>
     </div>
 </main>
+
+<style>
+    .card {
+        margin-bottom: 2rem;
+    }
+</style>
