@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/sebastian-abraham/recoverly/database"
 	"github.com/sebastian-abraham/recoverly/models"
+	"github.com/sebastian-abraham/recoverly/routes"
 )
 
 func main() {
@@ -26,6 +27,8 @@ func main() {
 	})
 
 	models.MigrateUser(db)
+
+	routes.UserRoutes(db, app)
 
 	app.Listen(":8080")
 }
