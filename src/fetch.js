@@ -1,4 +1,4 @@
-const baseUrl = "http://192.168.25.224:8080";
+const baseUrl = "hardly-genuine-yeti.ngrok-free.app";
 
 async function get(endpoint) {
     try {
