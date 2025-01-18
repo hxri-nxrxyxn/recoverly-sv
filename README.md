@@ -86,6 +86,7 @@ api.Post("/login", controller.Login(db))
 ##### **Handler: `controller.Login(db)`**
 This handler manages the login process by checking the provided credentials against the database and returning a token if valid.
 
+____________________________________________________________________________________________________________________________
 
 ### **2. /register**
 
@@ -172,7 +173,7 @@ api.Post("/register", controller.CreateUser(db))
 ##### This handler manages the registration process by validating the provided data, checking if the email is already in use, and then saving the new user to the database.
 
 
-
+____________________________________________________________________________________________________________________________
 
 ### **3. /users**
 ### **URL:** `api/v1/users`
@@ -243,9 +244,67 @@ api.Get("/users", controller.GetUsers(db))
 #### **Handler: controller.GetUsers(db)**
  The handler controller.GetUsers(db) is responsible for querying the database and returning the results.
 
+____________________________________________________________________________________________________________________________
+ 
+### **4. /users/:id**
 
- 
- 
+#### **URL:** `/users/:id`
+### METHOD: `GET`
+
+`GET /users/:id`: This endpoint retrieves the details of a specific user by their id. 
+
+The `/users/:id` endpoint allows you to retrieve the details of a specific user by their `id`. It provides the user information such as `id`, `name`, and `email`.
+
+#### **Example Request:**
+```bash
+curl --location 'https://your-api-url.com/api/v1/users/1' \
+--header 'Content-Type: application/json'
+```
+ **Response format**
+| Field     | Type     | Description                                |
+|-----------|----------|--------------------------------------------|
+| `id`      | `int`    | The unique identifier for the user.        |
+| `name`    | `string` | The name of the user.                      |
+| `email`   | `string` | The email address of the user.             |
+
+### **Success Response**
+#### Status Code: `200 OK`
+Response Body:
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john_doe@example.com"
+}
+```
+```bash
+curl --location --request GET '' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john_doe@example.com"
+}'
+```
+### **Error Responses**
+#### Status Code: `404 Not Found`
+The user with the given id was not found. 
+
+Example Response:
+```json
+{
+  "error": "User not found."
+}
+```
+#### The endpoint is defined in Go as follows:
+```go
+api.Get("/users/:id", controller.GetUser(db))
+```
+#### Handler: `controller.GetUser(db)`
+This handler fetches the user details from the database based on the provided id and returns them as a JSON response. If the user with the given id does not exist, an appropriate error message will be returned.
+
+
+
 
 
 
