@@ -15,10 +15,9 @@ func main() {
 
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
-        AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
-        AllowHeaders: "Content-Type,Authorization",
-    }))
-
+		AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+		AllowHeaders: "Content-Type,Authorization",
+	}))
 
 	db, err := database.NewConnection()
 	if err != nil {
@@ -30,8 +29,11 @@ func main() {
 	})
 
 	models.MigrateUser(db)
+	models.MigrateChat(db)
+	models.MigrateChatGroup(db)
 
 	routes.UserRoutes(db, app)
+	routes.ChatRoutes(db, app)
 
 	app.Listen(":8080")
 }
