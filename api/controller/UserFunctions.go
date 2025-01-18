@@ -1,13 +1,43 @@
 package controller
 
 import (
+	"errors"
+	"os"
 	"strings"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/golang-jwt/jwt"
+	"github.com/joho/godotenv"
 	"github.com/sebastian-abraham/recoverly/models"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
+
+func GenerateJWT(user *models.User) (string, error) {
+	err := godotenv.Load(".env")
+	if err != nil {
+		return "", err
+	}
+
+	key := (os.Getenv("JWT_SECRET"))
+	if key == "" {
+		return "", errors.New("JWT_SECRET not found")
+	}
+
+	claims := jwt.MapClaims{
+		"UserID": user.UserID,
+		"Email":  user.Email,
+		"exp":    time.Now().Add(time.Hour * 24).Unix(),
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	tokenString, err := token.SignedString([]byte(key))
+	if err != nil {
+		return "", err
+	}
+	return tokenString, nil
+}
 
 func UpdateUser(db *gorm.DB) func(*fiber.Ctx) error {
 	return func(c *fiber.Ctx) error {
@@ -185,7 +215,6 @@ func Login(db *gorm.DB) func(*fiber.Ctx) error {
 				"message": "Invalid Password",
 			})
 		}
-
 
 		return c.Status(200).JSON(fiber.Map{
 			"message": "User logged in",
