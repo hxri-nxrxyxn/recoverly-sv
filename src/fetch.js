@@ -8,7 +8,7 @@ async function get(endpoint) {
         }
         return await response.json();
     } catch (error) {
-        alert("Error fetching data:", error);
+        alert(`Error fetching data:${error}`);
         throw error; // Re-throw the error for proper handling
     }
 }
@@ -27,7 +27,7 @@ async function post(endpoint, data) {
         }
         return await response.json();
     } catch (error) {
-        alert("Error creating data:", error);
+        alert(`Error creating data:${error}`);
         throw error;
     }
 }
@@ -46,7 +46,7 @@ async function put(endpoint, data) {
         }
         return await response.json();
     } catch (error) {
-        alert("Error updating data:", error);
+        alert(`Error creating data:${error}`);
         throw error;
     }
 }
@@ -61,7 +61,7 @@ async function del(endpoint) {
         }
         return response.status === 204; // Check for successful deletion (no content)
     } catch (error) {
-        alert("Error deleting data:", error);
+        alert(`Error creating data:${error}`);
         throw error;
     }
 }
@@ -81,7 +81,8 @@ async function fetchData() {
         alert(updatedResult);
 
     } catch (error) {
-        alert("An error occurred:", error);
+        alert(`Error creating data:${error}`);
+        throw error;
     }
 }
 

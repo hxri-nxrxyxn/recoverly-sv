@@ -41,19 +41,46 @@
                     <button>+</button>
                 </div>
             </div>
+            <button>submit</button>
         </div>
+    </div>
+
+    <div class="achievements">
+        <div class="achievement">
+            <div class="achievement__logo">
+                <i>logo</i>
+            </div>
+            <div class="achievement__text">
+                <p>Fresh Start</p>
+            </div>
+        </div>
+        <div class="achievement">
+            <div class="achievement__logo">
+                <i>logo</i>
+            </div>
+            <div class="achievement__text">
+                <p>Fresh Start</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="emergency">
+        <Link to="/emergency">SOS</Link>
     </div>
 </main>
 
 <style>
     .task {
         display: flex;
+        justify-content: space-between;
     }
     .task__adjust {
         display: flex;
     }
     .pills {
         display: flex;
-        justify-content: space-between;
+    }
+    .achievement {
+        display: flex;
     }
 </style>

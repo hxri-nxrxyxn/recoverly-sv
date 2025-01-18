@@ -7,6 +7,9 @@
   import CollectTwo from "./CollectTwo.svelte";
   import CollectThree from "./CollectThree.svelte";
   import Dashboard from "./Dashboard.svelte";
+  import Emergency from "./Emergency.svelte";
+  import Events from "./Events.svelte";
+  import EventsRegister from "./EventsRegister.svelte";
 </script>
 
 <main>
@@ -18,5 +21,8 @@
     <Route path="/collect-two" component={CollectTwo} />
     <Route path="/collect-three" component={CollectThree} />
     <Route path="/dashboard" component={Dashboard} />
+    <Route path="/emergency" component={Emergency} />
+    <Route path="/events" component={Events} />
+    <Route path="/events-register" component={EventsRegister} />
   </Router>
 </main>
