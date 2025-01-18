@@ -53,8 +53,17 @@ h5 {
 
 .emergency {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     bottom: 10px;
     right: 10px;
+    background-color: var(--color-primary);
+    height: 4rem;
+    width: 4rem;
+    font-weight: 700;
+    color: white;
+    border-radius: 50%;
 }
 
 label {
@@ -156,6 +165,11 @@ button.solid {
 
 img.hero {
     width: calc(100vw - 4rem);
+}
+
+img.icon {
+    filter: invert(55%) sepia(69%) saturate(7448%) hue-rotate(235deg) brightness(98%) contrast(85%);
+    width: 1rem;
 }
 
 .btn__box {

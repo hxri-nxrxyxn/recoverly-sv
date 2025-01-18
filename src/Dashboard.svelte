@@ -2,6 +2,7 @@
     import { Link, useRouter } from "svelte-routing";
     import Morning from "./assets/undraw_mornings_kmib.png";
     import { Storage } from "@capacitor/storage";
+    import Trophy from "./assets/trophy-star-2.svg";
 
     // navigation
 
@@ -79,7 +80,7 @@
             <h2>Achivements</h2>
             <div class="achievement">
                 <div class="achievement__logo">
-                    <i>logo</i>
+                    <img src={Trophy} alt="" class="icon" />
                 </div>
                 <div class="achievement__text">
                     <p>Fresh Start</p>
@@ -87,10 +88,10 @@
             </div>
             <div class="achievement">
                 <div class="achievement__logo">
-                    <i>logo</i>
+                    <img src={Trophy} alt="" class="icon" />
                 </div>
                 <div class="achievement__text">
-                    <p>Fresh Start</p>
+                    <p>more awards</p>
                 </div>
             </div>
         </div>
@@ -154,5 +155,15 @@
     }
     .achievement {
         display: flex;
+        margin: 1rem 0;
+    }
+    .achievement__text {
+        margin-left: 1rem;
+    }
+    .achievement__text p {
+        font-weight: 600;
+    }
+    .achievement__logo img {
+        transform: translateY(0.2rem);
     }
 </style>

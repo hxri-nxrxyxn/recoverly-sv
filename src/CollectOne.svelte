@@ -1,8 +1,10 @@
 <script>
     import { Link } from "svelte-routing";
+    import NavClassic from "./NavClassic.svelte";
 </script>
 
 <main>
+    <NavClassic />
     <h1>Let it be a new <span>Beginning</span></h1>
     <div class="form__box">
         <div class="form__link">

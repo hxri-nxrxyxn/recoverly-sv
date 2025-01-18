@@ -1,8 +1,10 @@
 <script>
     import { Link } from "svelte-routing";
+    import NavClassic from "./NavClassic.svelte";
 </script>
 
 <main>
+    <NavClassic />
     <h1>Tell us about <br /><span>Yourself</span></h1>
     <div class="option__box">
         <div class="option__row">

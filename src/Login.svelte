@@ -3,6 +3,7 @@
     import { post } from "./fetch";
     import Flower from "./assets/undraw_order-flowers_81uq.png";
     import { Storage } from "@capacitor/storage";
+    import NavClassic from "./NavClassic.svelte";
 
     let email = $state("");
     let password = $state("");
@@ -28,6 +29,7 @@
 </script>
 
 <main>
+    <NavClassic />
     <h1>Let's beat our <span>addictions</span></h1>
     <img class="hero" src={Flower} alt="" />
     <div class="form__box">
