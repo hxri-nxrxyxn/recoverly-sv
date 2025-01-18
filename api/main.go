@@ -15,15 +15,15 @@ func main() {
 
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
-	}))
+        AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+        AllowHeaders: "Content-Type,Authorization",
+    }))
+
 
 	db, err := database.NewConnection()
 	if err != nil {
 		log.Fatal("Could not load database")
 	}
-
-	certFile := "self-signed.crt"
-	keyFile := "private.key"
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
@@ -33,8 +33,5 @@ func main() {
 
 	routes.UserRoutes(db, app)
 
-	log.Println("Starting HTTPS server on https://localhost:8080")
-	if err := app.ListenTLS(":8080", certFile, keyFile); err != nil {
-		log.Fatalf("Error starting server: %v", err)
-	}
+	app.Listen(":8080")
 }
