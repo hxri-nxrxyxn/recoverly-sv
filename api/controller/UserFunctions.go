@@ -14,7 +14,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func VerifyUser(db *gorm.DB) func (*fiber.Ctx) error {
+func VerifyUser(db *gorm.DB) func(*fiber.Ctx) error {
 	return func(c *fiber.Ctx) error {
 		tokenString := c.Get("Authorization")
 		if tokenString == "" {
@@ -41,7 +41,7 @@ func VerifyUser(db *gorm.DB) func (*fiber.Ctx) error {
 
 		claims, _ := token.Claims.(jwt.MapClaims)
 		UserID := claims["UserID"]
-		if UserID == nil{
+		if UserID == nil {
 			return c.Status(403).JSON(fiber.Map{
 				"message": "User Id not found in tokens",
 				"calims":  claims,
@@ -50,7 +50,7 @@ func VerifyUser(db *gorm.DB) func (*fiber.Ctx) error {
 
 		return c.Status(200).JSON(fiber.Map{
 			"message": "User verified",
-			"id":  UserID,
+			"id":      UserID,
 		})
 
 	}
@@ -192,9 +192,18 @@ func CreateUser(db *gorm.DB) func(*fiber.Ctx) error {
 			})
 		}
 
+		token, err := GenerateJWT(user)
+		if err != nil {
+			return c.Status(502).JSON(fiber.Map{
+				"message": "Could not generate token",
+				"error":   err.Error(),
+			})
+		}
+
 		return c.Status(201).JSON(fiber.Map{
 			"message": "User created",
 			"data":    user,
+			"token":   token,
 		})
 	}
 }
