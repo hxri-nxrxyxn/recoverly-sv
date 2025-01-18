@@ -39,6 +39,13 @@ func CreateUser(db *gorm.DB) func(*fiber.Ctx) error {
 
 		err = db.Create(user).Error
 		if err != nil {
+
+			if strings.Contains(err.Error(), "SQLSTATE 23505") {
+				return c.Status(400).JSON(fiber.Map{
+					"message": "Email already exists",
+				})
+			}
+
 			return c.Status(500).JSON(fiber.Map{
 				"message": "Could not create user",
 				"error":   err.Error(),
