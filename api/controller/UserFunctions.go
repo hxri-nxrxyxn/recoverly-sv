@@ -33,7 +33,7 @@ func VerifyUser(db *gorm.DB) func (*fiber.Ctx) error {
 		})
 
 		if err != nil || !token.Valid {
-			return c.Status(401).JSON(fiber.Map{
+			return c.Status(402).JSON(fiber.Map{
 				"message": "Invalid token",
 				"error":   err.Error(),
 			})
@@ -42,7 +42,7 @@ func VerifyUser(db *gorm.DB) func (*fiber.Ctx) error {
 		claims, _ := token.Claims.(jwt.MapClaims)
 		UserID := claims["UserID"]
 		if UserID == nil{
-			return c.Status(401).JSON(fiber.Map{
+			return c.Status(403).JSON(fiber.Map{
 				"message": "User Id not found in tokens",
 				"calims":  claims,
 			})
