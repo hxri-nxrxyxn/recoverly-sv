@@ -1,8 +1,10 @@
 # **API Documentation**
 
 ### **1. /login**
-### URL: `/api/v1/login`
-#### METHOD: `POST`
+#### URL: `/api/v1/login`
+### METHOD: `POST`
+`POST /login`: This route is used to handle user login.
+
 The `/login` endpoint allows users to authenticate by providing their credentials (usually username and password). Upon successful authentication, a token or session will be returned.
 
 ##### Request Body:
@@ -90,8 +92,10 @@ ________________________________________________________________________________
 
 ### **2. /register**
 
-### URL: `/api/v1/register`
-#### METHOD: `POST`
+#### URL: `/api/v1/register`
+### METHOD: `POST`
+`POST /register`: This route is used to handle user registration.
+
 The `/register` endpoint allows users to create a new account by providing their email, password, and other details. Upon successful registration, the user is returned with a confirmation message and their user data.
 
 ##### Request Body:
@@ -176,8 +180,9 @@ api.Post("/register", controller.CreateUser(db))
 ____________________________________________________________________________________________________________________________
 
 ### **3. /users**
-### **URL:** `api/v1/users`
-#### METHOD: `GET`
+#### **URL:** `api/v1/users`
+### METHOD: `GET`
+`GET /users`: This endpoint retrieves a list of all users.
 
 The `/users` endpoint allows you to retrieve a list of all registered users. It provides the user information such as `id`, `name`, and `email`.
 
@@ -212,7 +217,7 @@ Response Body:
 ]
 ```
 ```bash
-curl --location '' \
+curl --location GET '' \
 --header 'Content-Type: application/json' \
 --data-raw '[
   {
@@ -302,6 +307,93 @@ api.Get("/users/:id", controller.GetUser(db))
 ```
 #### Handler: `controller.GetUser(db)`
 This handler fetches the user details from the database based on the provided id and returns them as a JSON response. If the user with the given id does not exist, an appropriate error message will be returned.
+
+____________________________________________________________________________________________________________________________
+
+
+### **5. /users/:id**
+#### **URL:** `/users/:id`
+### METHOD: `PATCH`
+`PATCH /users/:id`: This endpoint is used to update a specific user's details.
+
+
+The `/users/:id` endpoint allows you to update the details of a specific user by their `id`. It supports updating fields such as `name` and `email`.
+
+
+#### **Example Request:**
+
+```bash
+curl --location --request PATCH '/api/v1/users/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "John Doe Updated",
+  "email": "updated_email@example.com"
+}'
+```
+#### **Request Body**
+
+| Field     | Type     | Description                                         |
+|-----------|----------|-----------------------------------------------------|
+| `name`    | `string` | The updated name of the user (optional).            |
+| `email`   | `string` | The updated email address of the user (optional).   |
+
+#### **Response Format**
+
+| Field     | Type     | Description                                |
+|-----------|----------|--------------------------------------------|
+| `id`      | `int`    | The unique identifier for the user.        |
+| `name`    | `string` | The updated name of the user.              |
+| `email`   | `string` | The updated email address of the user.     |
+
+### **Success Response**
+#### Status Code: `200 OK`
+Response Body:
+```json
+{
+  "id": 1,
+  "name": "John Doe Updated",
+  "email": "updated_email@example.com"
+}
+```
+```bash
+curl --location --request PATCH 'https://your-api-url.com/api/v1/users/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": 1,
+  "name": "John Doe Updated",
+  "email": "updated_email@example.com"
+}'
+```
+### **Error Responses**
+#### Status Code: `400 Bad Request`
+Invalid data was provided for the update. 
+
+Example Response:
+```json
+{
+  "error": "Invalid data provided."
+}
+```
+#### Status Code: `404 Not Found`
+The user with the given id was not found. 
+
+Example Response:
+```json
+{
+  "error": "User not found."
+}
+```
+#### The endpoint is defined in Go as follows:
+```go
+api.Patch("/users/:id", controller.UpdateUser(db))
+```
+#### Handler: `controller.UpdateUser(db)`
+This handler processes the incoming request to update user details in the database. It validates the request body, updates the user, and returns the updated user information or an appropriate error message.
+
+______________________________________________________________________________________________________________________________________________________________
+
+
+
 
 
 
