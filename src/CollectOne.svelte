@@ -26,7 +26,9 @@
         <div class="progress">
             <div class="progressi">whoa lion!</div>
         </div>
-        <button class="solid">CONTINUE</button>
+        <Link to="/collect-two">
+            <button class="solid">CONTINUE</button>
+        </Link>
     </div>
 </main>
 
