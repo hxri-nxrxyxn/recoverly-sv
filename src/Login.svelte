@@ -12,18 +12,18 @@
             email: email,
             password: password,
         };
-        const res = await post("/api/v1/login", data);
-        const id = res.data.id;
+        // const res = await post("/api/v1/login", data);
+        // const id = res.data.id;
 
-        const setToken = async () => {
-            await Storage.set({
-                key: "id",
-                value: id,
-            });
-            location.href = "/dashboard";
-        };
+        //  const setToken = async () => {
+        //      await Storage.set({
+        //          key: "id",
+        //          value: id,
+        //      });
+        //      alert("dashboard");
+        //  };
 
-        setToken();
+        //  setToken();
     };
 </script>
 
