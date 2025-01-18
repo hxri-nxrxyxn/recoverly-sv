@@ -30,8 +30,8 @@ curl --location 'https://hardly-genuine-yeti.ngrok-free.app/api/v1/login' \
 }'
 ```
 
-#### **Success Response**
-##### Status Code: `200 OK`
+### **Success Response**
+#### Status Code: `200 OK`
 Response Body:
 
 ``` json
@@ -58,8 +58,8 @@ curl --location 'https://hardly-genuine-yeti.ngrok-free.app/api/v1/login' \
   },
   "expires_in": 3600 } '
   ```
- #### **Error Responses**
- ##### Status Code: `400 Bad Request`
+ ### **Error Responses**
+ #### Status Code: `400 Bad Request`
 Description: Malformed or missing fields.
 Example Response:
 ```json
@@ -67,7 +67,7 @@ Example Response:
   "error": "Email or password is missing."
 }
 ```
-##### Status Code: `401 Unauthorized`
+#### Status Code: `401 Unauthorized`
 
 Description: Invalid email or password.
 Example Response:
