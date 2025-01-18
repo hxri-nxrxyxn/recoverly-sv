@@ -24,8 +24,8 @@
       return;
     }
 
-    const { id } = await res.json();
-
+    const newdata = await res.json();
+    const id = newdata.data.id;
     const setToken = async () => {
       await Storage.set({
         key: "id",
@@ -33,6 +33,7 @@
       });
     };
 
+    console.log(id);
     setToken();
 
     location.href = "/terms";
