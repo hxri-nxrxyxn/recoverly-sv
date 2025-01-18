@@ -62,9 +62,9 @@ func GenerateJWT(user *models.User) (string, error) {
 		return "", err
 	}
 
-	key := (os.Getenv("JWT_SECRET"))
+	key := (os.Getenv("SECRET_KEY"))
 	if key == "" {
-		return "", errors.New("JWT_SECRET not found")
+		return "", errors.New("SECRET_KEY not found")
 	}
 
 	claims := jwt.MapClaims{
