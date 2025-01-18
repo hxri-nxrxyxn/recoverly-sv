@@ -30,7 +30,6 @@ func main() {
 
 	models.MigrateUser(db)
 	models.MigrateChat(db)
-	models.MigrateChatGroup(db)
 
 	routes.UserRoutes(db, app)
 	routes.ChatRoutes(db, app)
