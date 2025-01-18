@@ -86,4 +86,5 @@ async function fetchData() {
     }
 }
 
+
 export { get, post, put, del };

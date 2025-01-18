@@ -1,16 +1,32 @@
 <script>
-    import { Link } from "svelte-routing";
+    import { Link, useRouter } from "svelte-routing";
     import Morning from "./assets/undraw_mornings_kmib.png";
-
     import { Storage } from "@capacitor/storage";
-    const checkToken = async () => {
-        const { value } = await Storage.get({ key: "token" });
-        if (value == null) location.href = "/login";
-    };
-    checkToken();
+    import { onMount } from "svelte";
+
+    // navigation
+
+    const router = useRouter();
+    let hasToken = null; // Start as null to represent "loading"
+
+    let claims;
+
+    onMount(async () => {
+        try {
+            const { id } = await Storage.get({ key: "id" });
+            hasToken = id !== null;
+            if (!hasToken) {
+                location.href = "/login";
+            }
+        } catch (error) {
+            console.error("Error checking token:", error);
+            hasToken = false; // Important: Set hasToken to false on error
+            alert("notoken again");
+        }
+    });
 </script>
 
-{#if value != null}
+{#if hasToken === true}
     <main>
         <div class="pills">
             <div class="pill">
@@ -80,9 +96,14 @@
             <Link to="/emergency">SOS</Link>
         </div>
     </main>
+{:else if hasToken === false}
+    <p>Redirecting to login...</p>
+{:else}
+    <p>Loading...</p>
 {/if}
 
 <style>
+    /* Your styles */
     .task {
         display: flex;
         justify-content: space-between;

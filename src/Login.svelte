@@ -2,18 +2,28 @@
     import { Link } from "svelte-routing";
     import { post } from "./fetch";
     import Flower from "./assets/undraw_order-flowers_81uq.png";
+    import { Storage } from "@capacitor/storage";
 
     let email = $state("");
     let password = $state("");
 
     const doPost = async () => {
-        alert("hey");
         const data = {
             email: email,
             password: password,
         };
         const res = await post("/api/v1/login", data);
-        alert(res.message);
+        const id = res.data.id;
+
+        const setToken = async () => {
+            await Storage.set({
+                key: "id",
+                value: id,
+            });
+            location.href = "/dashboard";
+        };
+
+        setToken();
     };
 </script>
 
