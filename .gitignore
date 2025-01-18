@@ -8,6 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 .env
+api/certificate.csr
+api/private.key
+api/self-signed.crt
 node_modules
 dist
 android

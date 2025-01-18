@@ -22,6 +22,9 @@ func main() {
 		log.Fatal("Could not load database")
 	}
 
+	certFile := "self-signed.crt"
+	keyFile := "private.key"
+
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
@@ -30,5 +33,8 @@ func main() {
 
 	routes.UserRoutes(db, app)
 
-	app.Listen(":8080")
+	log.Println("Starting HTTPS server on https://localhost:8080")
+	if err := app.ListenTLS(":8080", certFile, keyFile); err != nil {
+		log.Fatalf("Error starting server: %v", err)
+	}
 }

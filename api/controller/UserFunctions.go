@@ -128,7 +128,7 @@ func GetUser(db *gorm.DB) func(*fiber.Ctx) error {
 		id := c.Params("id")
 
 		user := new(models.User)
-		err := db.Where("UserID = ?", id).First(user).Error
+		err := db.Where("user_id = ?", id).First(user).Error
 		if err != nil {
 			if strings.Contains(err.Error(), "record not found") {
 				return c.Status(404).JSON(fiber.Map{
@@ -278,6 +278,7 @@ func Login(db *gorm.DB) func(*fiber.Ctx) error {
 		return c.Status(200).JSON(fiber.Map{
 			"message": "User logged in",
 			"token":   token,
+			"id":      user.UserID,
 		})
 	}
 }
