@@ -211,8 +211,20 @@ Response Body:
 ]
 ```
 ```bash
-curl --location 'https://your-api-url.com/api/v1/users' \
---header 'Content-Type: application/json'
+curl --location '' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+  {
+    "id": 1,
+    "name": "Hari Doe",
+    "email": "hari_doe@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Johhny Sebastian",
+    "email": "janeSeban@email.com"
+  }
+]'
 ```
 ### **Error Responses**
 #### Status Code: `500 Internal Server Error`
