@@ -8,5 +8,6 @@ import (
 
 func ChatRoutes(db *gorm.DB, app *fiber.App) {
 	api := app.Group("/api/v1")
-	api.Post("/chatgroup", controller.CreateChatGroup(db))
+	api.Post("/chat", controller.CreateChat(db))
+	api.Get("/chats", controller.GetChats(db))
 }

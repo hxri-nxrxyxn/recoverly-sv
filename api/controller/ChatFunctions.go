@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func CreateChatGroup(db *gorm.DB) fiber.Handler {
+func CreateChat(db *gorm.DB) fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		chat := new(models.Chat)
 		err := c.BodyParser(chat)
@@ -29,5 +29,24 @@ func CreateChatGroup(db *gorm.DB) fiber.Handler {
 			"data":    chat,
 		})
 
+	}
+}
+
+func GetChats(db *gorm.DB) fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		chats := new([]models.Chat)
+
+		err := db.Find(chats).Error
+		if err != nil {
+			return c.Status(500).JSON(fiber.Map{
+				"message": "Could not retrieve chats",
+				"error":   err.Error(),
+			})
+		}
+
+		return c.Status(200).JSON(fiber.Map{
+			"message": "Retrieved chats",
+			"data":    chats,
+		})
 	}
 }
