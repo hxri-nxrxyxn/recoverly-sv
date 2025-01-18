@@ -1,5 +1,6 @@
 <script>
     import { Link } from "svelte-routing";
+    import Morning from "./assets/undraw_mornings_kmib.png";
 </script>
 
 <main>
@@ -15,6 +16,8 @@
         </div>
     </div>
     <h1>Good morning, <span>Hari</span></h1>
+
+    <img src={Morning} alt="" class="hero" />
 
     <div class="card">
         <h1>Daily Task</h1>
@@ -46,6 +49,7 @@
     </div>
 
     <div class="achievements">
+        <h2>Achivements</h2>
         <div class="achievement">
             <div class="achievement__logo">
                 <i>logo</i>
@@ -111,6 +115,9 @@
         font-size: 0.5rem;
         font-weight: 700;
         color: var(--color-primary);
+    }
+    .achievements {
+        margin-top: 2rem;
     }
     .achievement {
         display: flex;
