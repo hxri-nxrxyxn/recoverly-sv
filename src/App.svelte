@@ -10,6 +10,7 @@
   import Emergency from "./Emergency.svelte";
   import Events from "./Events.svelte";
   import EventsRegister from "./EventsRegister.svelte";
+  import Event from "./Event.svelte";
 </script>
 
 <main>
@@ -24,5 +25,6 @@
     <Route path="/emergency" component={Emergency} />
     <Route path="/events" component={Events} />
     <Route path="/events-register" component={EventsRegister} />
+    <Route path="/event" component={Event} />
   </Router>
 </main>

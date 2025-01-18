@@ -19,7 +19,7 @@
         </div>
         <div class="form__link">
             <label>Existing Medical Conditions</label>
-            <input type="text" placeholder="" required />
+            <input type="text" placeholder="If any" required />
         </div>
     </div>
     <div class="btn__box">
@@ -33,12 +33,7 @@
 </main>
 
 <style>
-    .progress {
-        color: transparent;
-        background: red;
-    }
     .progressi {
         width: 60%;
-        background: blue;
     }
 </style>
