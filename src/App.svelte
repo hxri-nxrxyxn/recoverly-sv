@@ -4,6 +4,7 @@
   import Register from "./Register.svelte";
   import Terms from "./Terms.svelte";
   import CollectOne from "./CollectOne.svelte";
+  import CollectTwo from "./CollectTwo.svelte";
 </script>
 
 <main>
@@ -12,6 +13,7 @@
     <Route path="/" component={Login} />
     <Route path="/terms" component={Terms} />
     <Route path="/collect-one" component={CollectOne} />
+    <Route path="/collect-two" component={CollectTwo} />
   </Router>
 </main>
 

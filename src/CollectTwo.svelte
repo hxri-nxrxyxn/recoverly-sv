@@ -1,0 +1,45 @@
+<script>
+    import { Link } from "svelte-routing";
+</script>
+
+<main>
+    <a href="/register">register</a>
+    <h1>Let it be a new <span>Beginning</span></h1>
+    <div class="form__box">
+        <div class="form__link">
+            <label>Height</label>
+            <input type="text" placeholder="CM" required />
+        </div>
+        <div class="form__link">
+            <label>Weight</label>
+            <input type="password" placeholder="KG" required />
+        </div>
+        <div class="form__link">
+            <label>Addiction Severity</label>
+            <input type="range" min="1" max="100" />
+        </div>
+        <div class="form__link">
+            <label>Existing Medical Conditions</label>
+            <input type="password" placeholder="" required />
+        </div>
+    </div>
+    <div class="btn__box">
+        <div class="progress">
+            <div class="progressi">whoa lion!</div>
+        </div>
+        <Link to="/collect-three">
+            <button class="solid">CONTINUE</button>
+        </Link>
+    </div>
+</main>
+
+<style>
+    .progress {
+        color: transparent;
+        background: red;
+    }
+    .progressi {
+        width: 60%;
+        background: blue;
+    }
+</style>
