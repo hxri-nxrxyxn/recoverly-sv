@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <h1>Tell us about <span>Yourself</span></h1>
+    <h1>Tell us about <br /><span>Yourself</span></h1>
     <div class="option__box">
         <div class="option__row">
             <div class="option">
@@ -44,6 +44,20 @@
     .option__row {
         justify-content: space-between;
         display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .option {
+        width: 100%;
+        background-color: var(--color-light);
+        height: 15vh;
+        position: relative;
+        border-radius: 1rem;
+    }
+    .option p {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
     }
     .progressi {
         width: 89%;

@@ -30,4 +30,7 @@
 </main>
 
 <style>
+    h2 {
+        margin-bottom: 1rem;
+    }
 </style>

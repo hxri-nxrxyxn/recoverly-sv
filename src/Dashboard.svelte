@@ -73,12 +73,44 @@
     .task {
         display: flex;
         justify-content: space-between;
+        margin-top: 1rem;
     }
     .task__adjust {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .task__adjust > * {
+        margin-left: 1rem;
+    }
+    .task__adjust button {
+        position: initial;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 0;
+        color: var(--color-text);
+        background-color: var(--color-light);
+    }
+    .task__adjust h5 {
+        text-align: center;
+    }
+    .task__text p {
+        font-size: 0.75rem;
     }
     .pills {
         display: flex;
+        margin-bottom: 1rem;
+    }
+    .pill {
+        background-color: var(--color-light);
+        padding: 0.25rem 1rem;
+        margin-right: 0.5rem;
+        border-radius: 2rem;
+    }
+    .pill p {
+        font-size: 0.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
     }
     .achievement {
         display: flex;
