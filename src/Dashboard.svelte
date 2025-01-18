@@ -1,77 +1,86 @@
 <script>
     import { Link } from "svelte-routing";
     import Morning from "./assets/undraw_mornings_kmib.png";
+
+    import { Storage } from "@capacitor/storage";
+    const checkToken = async () => {
+        const { value } = await Storage.get({ key: "token" });
+        if (value == null) location.href = "/login";
+    };
+    checkToken();
 </script>
 
-<main>
-    <div class="pills">
-        <div class="pill">
-            <p>LEVEL</p>
+{#if value != null}
+    <main>
+        <div class="pills">
+            <div class="pill">
+                <p>LEVEL</p>
+            </div>
+            <div class="pill">
+                <p>EVENTS</p>
+            </div>
+            <div class="pill">
+                <p>CHATROOM</p>
+            </div>
         </div>
-        <div class="pill">
-            <p>EVENTS</p>
-        </div>
-        <div class="pill">
-            <p>CHATROOM</p>
-        </div>
-    </div>
-    <h1>Good morning, <span>Hari</span></h1>
+        <h1>Good morning, <span>Hari</span></h1>
 
-    <img src={Morning} alt="" class="hero" />
+        <img src={Morning} alt="" class="hero" />
 
-    <div class="card">
-        <h1>Daily Task</h1>
-        <div class="tasks">
-            <div class="task">
-                <div class="task__text">
-                    <h5>No. of minutes meditated</h5>
-                    <p>0/15</p>
+        <div class="card">
+            <h1>Daily Task</h1>
+            <div class="tasks">
+                <div class="task">
+                    <div class="task__text">
+                        <h5>No. of minutes meditated</h5>
+                        <p>0/15</p>
+                    </div>
+                    <div class="task__adjust">
+                        <button>-</button>
+                        <h5>0</h5>
+                        <button>+</button>
+                    </div>
                 </div>
-                <div class="task__adjust">
-                    <button>-</button>
-                    <h5>0</h5>
-                    <button>+</button>
+                <div class="task">
+                    <div class="task__text">
+                        <h5>No. of cigarretes smoked</h5>
+                        <p>0/7</p>
+                    </div>
+                    <div class="task__adjust">
+                        <button>-</button>
+                        <h5>0</h5>
+                        <button>+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="task">
-                <div class="task__text">
-                    <h5>No. of cigarretes smoked</h5>
-                    <p>0/7</p>
-                </div>
-                <div class="task__adjust">
-                    <button>-</button>
-                    <h5>0</h5>
-                    <button>+</button>
-                </div>
-            </div>
-            <button>submit</button>
-        </div>
-    </div>
-
-    <div class="achievements">
-        <h2>Achivements</h2>
-        <div class="achievement">
-            <div class="achievement__logo">
-                <i>logo</i>
-            </div>
-            <div class="achievement__text">
-                <p>Fresh Start</p>
+                <button>submit</button>
             </div>
         </div>
-        <div class="achievement">
-            <div class="achievement__logo">
-                <i>logo</i>
+
+        <div class="achievements">
+            <h2>Achivements</h2>
+            <div class="achievement">
+                <div class="achievement__logo">
+                    <i>logo</i>
+                </div>
+                <div class="achievement__text">
+                    <p>Fresh Start</p>
+                </div>
             </div>
-            <div class="achievement__text">
-                <p>Fresh Start</p>
+            <div class="achievement">
+                <div class="achievement__logo">
+                    <i>logo</i>
+                </div>
+                <div class="achievement__text">
+                    <p>Fresh Start</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="emergency">
-        <Link to="/emergency">SOS</Link>
-    </div>
-</main>
+        <div class="emergency">
+            <Link to="/emergency">SOS</Link>
+        </div>
+    </main>
+{/if}
 
 <style>
     .task {

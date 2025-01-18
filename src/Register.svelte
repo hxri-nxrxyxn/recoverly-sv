@@ -1,5 +1,5 @@
 <script>
-    import { Link } from "svelte-routing";
+    import { Link, goto } from "svelte-routing";
 </script>
 
 <main>

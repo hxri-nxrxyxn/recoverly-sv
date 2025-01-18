@@ -16,7 +16,8 @@
 <main>
   <Router>
     <Route path="/register" component={Register} />
-    <Route path="/" component={Login} />
+    <Route path="/" component={Dashboard} />
+    <Route path="/login" component={Login} />
     <Route path="/terms" component={Terms} />
     <Route path="/collect-one" component={CollectOne} />
     <Route path="/collect-two" component={CollectTwo} />
