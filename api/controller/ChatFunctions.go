@@ -1,8 +1,6 @@
 package controller
 
 import (
-	"time"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/sebastian-abraham/recoverly/models"
 	"gorm.io/gorm"
@@ -10,33 +8,25 @@ import (
 
 func CreateChatGroup(db *gorm.DB) fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		chatGroup := new(models.ChatGroup)
-		err := c.BodyParser(chatGroup)
+		chat := new(models.Chat)
+		err := c.BodyParser(chat)
 		if err != nil {
 			return c.Status(400).JSON(fiber.Map{
 				"message": "Could not parse JSON",
 			})
 		}
 
-		chatGroup.Chats = []models.Chat{
-			{
-				UserID:  1,
-				Message: "Welcome to the chat group",
-				Sent:    time.Now(),
-			},
-		}
-
-		err = db.Create(chatGroup).Error
+		err = db.Create(chat).Error
 		if err != nil {
 			return c.Status(500).JSON(fiber.Map{
-				"message": "Could not create chat group",
+				"message": "Could not create chat",
 				"error":   err.Error(),
 			})
 		}
 
 		return c.Status(201).JSON(fiber.Map{
-			"message": "Chat group created",
-			"data":    chatGroup,
+			"message": "Chat created",
+			"data":    chat,
 		})
 
 	}
