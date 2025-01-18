@@ -3,7 +3,6 @@
 </script>
 
 <main>
-    <a href="/register">register</a>
     <h1>Let it be a new <span>Beginning</span></h1>
     <div class="form__box">
         <div class="form__link">
@@ -27,9 +26,7 @@
         <div class="progress">
             <div class="progressi">whoa lion!</div>
         </div>
-        <Link to="/collect-two">
-            <button class="solid">CONTINUE</button>
-        </Link>
+        <button class="solid">CONTINUE</button>
     </div>
 </main>
 

@@ -1,5 +1,19 @@
 <script>
     import { Link } from "svelte-routing";
+    import { post } from "./fetch";
+
+    let email = $state("");
+    let password = $state("");
+
+    const doPost = async () => {
+        alert("hey");
+        const data = {
+            email: email,
+            password: password,
+        };
+        const res = await post("/api/v1/login", data);
+        alert(res.message);
+    };
 </script>
 
 <main>
@@ -7,20 +21,28 @@
     <div class="form__box">
         <div class="form__link">
             <label>Email Id</label>
-            <input type="text" placeholder="Email" required />
+            <input
+                type="text"
+                placeholder="Email"
+                required
+                bind:value={email}
+            />
         </div>
         <div class="form__link">
             <label>Password</label>
-            <input type="password" placeholder="Password" required />
+            <input
+                type="password"
+                placeholder="Password"
+                required
+                bind:value={password}
+            />
         </div>
     </div>
     <div class="btn__box">
         <Link to="/org-login">
             <button class="outlined">ORGANIZER LOGIN</button>
         </Link>
-        <Link>
-            <button class="solid">LOGIN</button>
-        </Link>
+        <button class="solid" onclick={doPost}>LOGIN</button>
         <p class="foot">
             Don't have an account?<Link to="/register"><b>Create one</b></Link>
         </p>
