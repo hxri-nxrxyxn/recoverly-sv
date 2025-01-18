@@ -31,6 +31,9 @@
         </div>
     </div>
     <div class="btn__box">
+        <div class="progress">
+            <div class="progressi">whoa lion!</div>
+        </div>
         <Link to="/dashboard">
             <button class="solid">NEXT</button>
         </Link>
@@ -38,6 +41,14 @@
 </main>
 
 <style>
+    .progress {
+        color: transparent;
+        background: red;
+    }
+    .progressi {
+        width: 100%;
+        background: blue;
+    }
     .option__row {
         justify-content: space-between;
         display: flex;

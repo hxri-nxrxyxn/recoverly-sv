@@ -3,7 +3,6 @@
 </script>
 
 <main>
-    <a href="/register">register</a>
     <h1>Let it be a new <span>Beginning</span></h1>
     <div class="form__box">
         <div class="form__link">
@@ -20,7 +19,7 @@
         </div>
         <div class="form__link">
             <label>Existing Medical Conditions</label>
-            <input type="password" placeholder="" required />
+            <input type="text" placeholder="" required />
         </div>
     </div>
     <div class="btn__box">

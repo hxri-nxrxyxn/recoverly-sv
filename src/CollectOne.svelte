@@ -8,11 +8,11 @@
     <div class="form__box">
         <div class="form__link">
             <label>First Name</label>
-            <input type="text" placeholder="Email" required />
+            <input type="text" placeholder="Hari" required />
         </div>
         <div class="form__link">
             <label>Last Name</label>
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Narayan" required />
         </div>
         <div class="form__link">
             <label>Date of Birth</label>
