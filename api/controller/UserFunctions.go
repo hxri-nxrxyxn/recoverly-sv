@@ -38,7 +38,7 @@ func UpdateUser(db *gorm.DB) func(*fiber.Ctx) error {
 
 		err = db.Save(user).Error
 		if err != nil {
-			return c.Status(500).JSON(fiber.Map{
+			return c.Status(501).JSON(fiber.Map{
 				"message": "Could not update user",
 				"error":   err.Error(),
 			})
@@ -90,7 +90,7 @@ func CreateUser(db *gorm.DB) func(*fiber.Ctx) error {
 		}
 
 		if user.Email == "" || user.Password == "" {
-			return c.Status(400).JSON(fiber.Map{
+			return c.Status(401).JSON(fiber.Map{
 				"message": "Email or Password is missing",
 			})
 		}
@@ -109,12 +109,12 @@ func CreateUser(db *gorm.DB) func(*fiber.Ctx) error {
 		if err != nil {
 
 			if strings.Contains(err.Error(), "SQLSTATE 23505") {
-				return c.Status(400).JSON(fiber.Map{
+				return c.Status(402).JSON(fiber.Map{
 					"message": "Email already exists",
 				})
 			}
 
-			return c.Status(500).JSON(fiber.Map{
+			return c.Status(501).JSON(fiber.Map{
 				"message": "Could not create user",
 				"error":   err.Error(),
 			})
@@ -159,7 +159,7 @@ func Login(db *gorm.DB) func(*fiber.Ctx) error {
 		}
 
 		if userData.Email == "" || userData.Password == "" {
-			return c.Status(400).JSON(fiber.Map{
+			return c.Status(401).JSON(fiber.Map{
 				"message": "Email or Password is missing",
 			})
 		}
@@ -180,7 +180,7 @@ func Login(db *gorm.DB) func(*fiber.Ctx) error {
 		}
 
 		if user.Password != userData.Password {
-			return c.Status(401).JSON(fiber.Map{
+			return c.Status(402).JSON(fiber.Map{
 				"message": "Password is incorrect",
 			})
 		}
