@@ -1,8 +1,10 @@
 <script>
     import { Link } from "svelte-routing";
+    import Nav from "./Nav.svelte";
 </script>
 
 <main>
+    <Nav />
     <h1>Local events <span>Near You</span></h1>
     <div class="scan__box">
         <h2>Join Event</h2>

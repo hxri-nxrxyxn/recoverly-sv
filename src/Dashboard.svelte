@@ -3,6 +3,7 @@
     import Morning from "./assets/undraw_mornings_kmib.png";
     import { Storage } from "@capacitor/storage";
     import Trophy from "./assets/trophy-star-2.svg";
+    import Nav from "./Nav.svelte";
 
     // navigation
 
@@ -52,6 +53,7 @@
 
 {#if hasToken === true}
     <main>
+        <Nav />
         <div class="pills">
             <div class="pill">
                 <p>LEVEL</p>
@@ -111,16 +113,8 @@
                     <img src={Trophy} alt="" class="icon" />
                 </div>
                 <div class="achievement__text">
-                    <p>more awards</p>
+                    <p>Smoke Free 2nd Day</p>
                 </div>
-            </div>
-        </div>
-        <div class="achievement">
-            <div class="achievement__logo">
-                <i>logo</i>
-            </div>
-            <div class="achievement__text">
-                <p>Fresh Start</p>
             </div>
         </div>
 

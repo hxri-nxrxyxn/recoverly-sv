@@ -1,8 +1,10 @@
 <script>
     import { Link } from "svelte-routing";
+    import Nav from "./Nav.svelte";
 </script>
 
 <main>
+    <Nav />
     <img src="#" alt="" />
     <div class="details">
         <h1>Anti-drug campaign</h1>

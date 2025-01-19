@@ -64,4 +64,8 @@
     .progressi {
         width: 89%;
     }
+    .option:focus {
+        background-color: var(--color-primary);
+        color: white;
+    }
 </style>

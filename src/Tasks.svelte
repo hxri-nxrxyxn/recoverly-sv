@@ -3,6 +3,7 @@
     import { get } from "./fetch";
     import { GoogleGenerativeAI } from "@google/generative-ai";
     const API_KEY = "AIzaSyCjT3qZw8I6SYEqEH1x_681_4czeQB8OIw";
+    import Nav from "./Nav.svelte";
 
     const urlParams = new URLSearchParams(window.location.search);
     let mytip = urlParams.get("tip"); // Get the value of 'category'
@@ -24,6 +25,7 @@
 </script>
 
 <main>
+    <Nav />
     <h1>Generate Effective <br /> <span>Goals</span></h1>
 
     <div class="tasks">

@@ -5,6 +5,7 @@
     const duration = urlParams.get("duration"); // Get the value of 'category'
     import { GoogleGenerativeAI } from "@google/generative-ai";
     const API_KEY = "AIzaSyCjT3qZw8I6SYEqEH1x_681_4czeQB8OIw";
+    import Nav from "./Nav.svelte";
 
     let mytip = $state("");
     let hasToken = null;
@@ -53,6 +54,7 @@
 </script>
 
 <main>
+    <Nav />
     <h1>Generate Effective <br /> <span>Goals</span></h1>
     <div class="gen__box">
         <h3>Short Term Goal</h3>

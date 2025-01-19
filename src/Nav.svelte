@@ -17,27 +17,29 @@
             <img src={Star} alt="" class="icon" onclick={viewDropDown} />
         </div>
         <div class="nav__dropdown">
-            <p onclick={hideDropDown}>Home</p>
+            <p onclick={hideDropDown}>Back</p>
             <Link to="/chatroom">
                 <p>Chatroom</p>
             </Link>
             <Link to="/events">
                 <p>Local Events</p>
             </Link>
-            <Link>
+            <Link to="/templates">
                 <p>Templates & Guides</p>
             </Link>
-            <Link>
+            <Link to="/service">
                 <p>Service</p>
             </Link>
-            <Link>
+            <Link to="/events">
                 <p>AI Task Generation</p>
             </Link>
         </div>
         <div class="nav__placeholder">hey</div>
         <div class="nav__stats">
             <h5>Hari</h5>
-            <img src={ProfilePic} alt="" class="icon" />
+            <Link to="/profile">
+                <img src={ProfilePic} alt="" class="icon" />
+            </Link>
         </div>
     </div>
 </main>

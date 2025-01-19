@@ -1,9 +1,11 @@
 <script>
     import { Link } from "svelte-routing";
     let duration;
+    import Nav from "./Nav.svelte";
 </script>
 
 <main>
+    <Nav />
     <h1>Generate Effective <br /> <span>Goals</span></h1>
     <div class="form__box">
         <div class="form__link">

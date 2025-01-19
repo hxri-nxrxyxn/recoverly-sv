@@ -1,6 +1,7 @@
 <script>
   import { Link } from "svelte-routing";
   import { Storage } from "@capacitor/storage";
+  import Nav from "./Nav.svelte";
 
   const loadevents = async () => {
     const response = await fetch("http://localhost:8080/api/v1/events", {
@@ -23,6 +24,7 @@
 </script>
 
 <main>
+  <Nav />
   <h1>Local events <br /><span>Near You</span></h1>
 
   {#await data}
@@ -49,7 +51,7 @@
                 headers: {
                   "Content-Type": "application/json",
                 },
-              }
+              },
             );
 
             if (!response.ok) {
