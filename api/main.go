@@ -31,6 +31,7 @@ func main() {
 	models.MigrateUser(db)
 	models.MigrateChat(db)
 	models.MigrateEvent(db)
+	models.MigrateTask(db)
 
 	routes.UserRoutes(db, app)
 	routes.ChatRoutes(db, app)
