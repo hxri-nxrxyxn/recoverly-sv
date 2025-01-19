@@ -10,4 +10,5 @@ func EventRoutes(db *gorm.DB, app *fiber.App) {
 	api := app.Group("/api/v1")
 	api.Post("/event", controller.CreateEvent(db))
 	api.Get("/events", controller.GetEvents(db))
+	api.Get("/event/:id", controller.GetEvent(db))
 }
