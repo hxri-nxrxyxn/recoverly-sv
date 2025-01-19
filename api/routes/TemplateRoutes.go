@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func TaskRoutes(db *gorm.DB, app *fiber.App) {
+func TemplateRoutes(db *gorm.DB, app *fiber.App) {
 	api := app.Group("/api/v1")
-	api.Post("/task", controller.CreateTask(db))
+	api.Post("/task", controller.CreateTemplate(db))
 }
