@@ -64,15 +64,6 @@
                 bind:value={password}
             />
         </div>
-        <div class="form__link">
-            <label>Password</label>
-            <input
-                type="password"
-                placeholder="Password"
-                required
-                bind:value={password}
-            />
-        </div>
     </div>
 
     <div class="btn__box">
