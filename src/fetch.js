@@ -1,4 +1,4 @@
-const baseUrl = "https://192.168.25.224:8080";
+const baseUrl = "http://192.168.183.224:8080";
 
 async function get(endpoint) {
     try {

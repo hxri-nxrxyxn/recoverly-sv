@@ -13,7 +13,7 @@
       email: email,
       password: password,
     };
-    const res = await fetch("http://localhost:8080/api/v1/login", {
+    const res = await fetch("http://192.168.183.224:8080/api/v1/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@
     <br />
     <button class="solid" onclick={doPost}>LOGIN</button>
     <p class="foot">
-      Don't have an account?<Link to="/register"><b>Create one</b></Link>
+      Don't have an account? <Link to="/register"><b>Create one</b></Link>
     </p>
   </div>
 </main>

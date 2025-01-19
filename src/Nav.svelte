@@ -9,6 +9,15 @@
     const hideDropDown = () => {
         document.querySelector(".nav__dropdown").style.display = "none";
     };
+
+    const logout = async () => {
+        try {
+            await Storage.remove({ key: "id" });
+            location.href = "/login";
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 </script>
 
 <main>
@@ -30,8 +39,11 @@
             <Link to="/service">
                 <p>Service</p>
             </Link>
-            <Link to="/events">
+            <Link to="/goals">
                 <p>AI Task Generation</p>
+            </Link>
+            <Link to="/">
+                <p onclick={logout}><b>Logout</b></p>
             </Link>
         </div>
         <div class="nav__placeholder">hey</div>
