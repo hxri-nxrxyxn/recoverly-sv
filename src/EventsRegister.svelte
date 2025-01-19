@@ -1,53 +1,78 @@
 <script>
-    import { Link } from "svelte-routing";
+  import { Link } from "svelte-routing";
+  import { Storage } from "@capacitor/storage";
+
+  const loadevents = async () => {
+    const response = await fetch("http://localhost:8080/api/v1/events", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const { error } = await response.json();
+      alert(error);
+      return;
+    }
+
+    return await response.json();
+  };
+
+  const data = loadevents();
 </script>
 
 <main>
-    <h1>Local events <br /><span>Near You</span></h1>
+  <h1>Local events <br /><span>Near You</span></h1>
 
-    <div class="card">
+  {#await data}
+    <p>Loading events...</p>
+  {:then events}
+    {#each events.data as event}
+      <div class="card">
         <div class="card__image">
-            <img src="#" alt="" />
+          <img src={event.image || "#"} alt={event.title} />
         </div>
         <div class="card__text">
-            <h1>Anti Drug Campaign</h1>
-            <p>National Service Scheme</p>
-            <p>Location</p>
+          <h1>{event.name}</h1>
+          <p>{event.orginizer}</p>
+          <p>{event.location}</p>
         </div>
-        <Link to="/event">
-            <button>REGISTER</button>
-        </Link>
-    </div>
-    <div class="card">
-        <div class="card__image">
-            <img src="#" alt="" />
-        </div>
-        <div class="card__text">
-            <h1>ExSmoker Summit</h1>
-            <p>Instagram Support</p>
-            <p>Location</p>
-        </div>
-        <Link to="/event">
-            <button>REGISTER</button>
-        </Link>
-    </div>
-    <div class="card">
-        <div class="card__image">
-            <img src="#" alt="" />
-        </div>
-        <div class="card__text">
-            <h1>Anti Drug Campaign</h1>
-            <p>National Service Scheme</p>
-            <p>Location</p>
-        </div>
-        <Link to="/event">
-            <button>REGISTER</button>
-        </Link>
-    </div>
+        <button
+          on:click={async () => {
+            // Use the event's `id` dynamically in the API call
+            console.log(event.id);
+            const response = await fetch(
+              `http://localhost:8080/api/v1/event/${event.id}`,
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+
+            if (!response.ok) {
+              const error = await response.json();
+              console.log(error);
+              return;
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+            location.href = "/register/" + event.id;
+          }}>REGISTER</button
+        >
+      </div>
+    {/each}
+  {:catch error}
+    <p>Error loading events: {error.message}</p>
+  {/await}
 </main>
 
 <style>
-    .card {
-        margin-bottom: 2rem;
-    }
+  .card {
+    margin-bottom: 2rem;
+  }
 </style>
