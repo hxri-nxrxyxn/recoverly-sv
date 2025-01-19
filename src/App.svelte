@@ -14,6 +14,9 @@
   import Goals from "./Goals.svelte";
   import GoalsGen from "./GoalsGen.svelte";
   import Tasks from "./Tasks.svelte";
+  import Profile from "./Profile.svelte";
+  import Chatroom from "./Chatroom.svelte";
+  import Chat from "./Chat.svelte";
 </script>
 
 <main>
@@ -33,5 +36,8 @@
     <Route path="/goals" component={Goals} />
     <Route path="/goals-gen" component={GoalsGen} />
     <Route path="/tasks" component={Tasks} />
+    <Route path="/profile" component={Profile} />
+    <Route path="/chatroom" component={Chatroom} />
+    <Route path="/chat" component={Chat} />
   </Router>
 </main>

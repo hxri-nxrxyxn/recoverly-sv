@@ -1,6 +1,6 @@
 <script>
     import Star from "./assets/noun-star-923969.svg";
-    import Profile from "./assets/circle-user.svg";
+    import ProfilePic from "./assets/circle-user.svg";
 </script>
 
 <main>
@@ -11,7 +11,7 @@
         <div class="nav__placeholder">hey</div>
         <div class="nav__stats">
             <h5>Hari</h5>
-            <img src={Profile} alt="" class="icon" />
+            <img src={ProfilePic} alt="" class="icon" />
         </div>
     </div>
 </main>
