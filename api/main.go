@@ -36,6 +36,7 @@ func main() {
 	routes.UserRoutes(db, app)
 	routes.ChatRoutes(db, app)
 	routes.EventRoutes(db, app)
+	routes.TaskRoutes(db, app)
 
 	app.Listen(":8080")
 }
