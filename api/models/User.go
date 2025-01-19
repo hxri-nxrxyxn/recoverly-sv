@@ -21,6 +21,7 @@ type User struct {
 	CreatedAt     time.Time  `gorm:"autoCreateTime" json:"created_at"`
 	LongTermGoal  *string    `gorm:"varchar(255)" json:"long_term_goal"`
 	ShortTermGoal *string    `gorm:"varchar(255)" json:"short_term_goal"`
+	RegistredEvents []*Event `gorm:"many2many:users_events" json:"registred_events"`
 }
 
 func MigrateUser(db *gorm.DB) error {

@@ -12,6 +12,8 @@ type Event struct {
 	Locatioln string    `gorm:"type:varchar(255)" json:"location"` // Chat group name
 	Details   string    `gorm:"type:varchar(255)" json:"details"`  // Message content
 	Time      time.Time `json:"time"`                              // Auto-create timestamp for when the message is sent
+	Orginizer string    `gorm:"type:varchar(255)" json:"orginizer"`
+	Image     string    `gorm:"type:varchar(255)" json:"image"`
 }
 
 func MigrateEvent(db *gorm.DB) error {
