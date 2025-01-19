@@ -4,12 +4,6 @@
     import { GoogleGenerativeAI } from "@google/generative-ai";
     const API_KEY = "AIzaSyCjT3qZw8I6SYEqEH1x_681_4czeQB8OIw";
 
-    const doPost = async () => {
-        const res = await get("/");
-        console.log(res);
-    };
-    doPost();
-
     const urlParams = new URLSearchParams(window.location.search);
     let mytip = urlParams.get("tip"); // Get the value of 'category'
     const generateAI = async (prompt) => {
@@ -25,29 +19,23 @@
     };
 
     generateAI(
-        `dont't even have to include any backticks just return the data in a json format, as a series of tasks with list of having whaat to do`,
+        `dont't even have to include any backticks just return the data in a array format, as a series of tasks (max 3) with list of having whaat to do`,
     );
 </script>
 
 <main>
     <h1>Generate Effective <br /> <span>Goals</span></h1>
-    <div class="form__box">
-        <div class="form__link">
-            <label>Goal duration</label>
-            <input type="text" placeholder="Weeks" required />
-        </div>
-    </div>
 
     <div class="tasks">
         <div class="task">
-            <h1>Week 1</h1>
+            <h3>Week 1</h3>
             <p>Get started by</p>
             <p class="task--sub">task 1</p>
             <p class="task--sub">task 2</p>
         </div>
     </div>
     <div class="btn__box">
-        <Link to="/goals-gen">
+        <Link to="/dashboard">
             <button class="solid">CONTINUE</button>
         </Link>
     </div>

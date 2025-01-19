@@ -1,5 +1,6 @@
 <script>
     import Star from "./assets/noun-star-923969.svg";
+    import { Link } from "svelte-routing";
 </script>
 
 <main>
@@ -7,7 +8,9 @@
         <div class="nav__icon">
             <img src={Star} alt="" class="icon" />
         </div>
-        <div class="nav__placeholder">hey</div>
+        <Link to="/dashboard">
+            <div class="nav__placeholder">hey</div>
+        </Link>
     </div>
 </main>
 
