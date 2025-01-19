@@ -5,6 +5,21 @@
     import Trophy from "./assets/trophy-star-2.svg";
     import Nav from "./Nav.svelte";
 
+    let first = $state(0);
+    let second = $state(0);
+    const decFirst = () => {
+        if (first != 0) first--;
+    };
+    const incFirst = () => {
+        first++;
+    };
+    const decSecond = () => {
+        if (second != 0) second--;
+    };
+    const incSecond = () => {
+        second++;
+    };
+
     // navigation
 
     const router = useRouter();
@@ -78,9 +93,9 @@
                         <p>0/15</p>
                     </div>
                     <div class="task__adjust">
-                        <button>-</button>
-                        <h5>0</h5>
-                        <button>+</button>
+                        <button onclick={decFirst}>-</button>
+                        <h5>{first}</h5>
+                        <button onclick={incFirst}>+</button>
                     </div>
                 </div>
                 <div class="task">
@@ -89,9 +104,9 @@
                         <p>0/7</p>
                     </div>
                     <div class="task__adjust">
-                        <button>-</button>
-                        <h5>0</h5>
-                        <button>+</button>
+                        <button onclick={decSecond}>-</button>
+                        <h5>{second}</h5>
+                        <button onclick={incSecond}>+</button>
                     </div>
                 </div>
                 <button onclick={logout}>submit</button>
