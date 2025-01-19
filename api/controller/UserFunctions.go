@@ -83,24 +83,9 @@ func GenerateJWT(user *models.User) (string, error) {
 
 func UpdateUser(db *gorm.DB) func(*fiber.Ctx) error {
 	return func(c *fiber.Ctx) error {
-		id := c.Params("id")
 		user := new(models.User)
 
-		err := db.Where("UserID = ?", id).First(user).Error
-		if err != nil {
-			if strings.Contains(err.Error(), "record not found") {
-				return c.Status(404).JSON(fiber.Map{
-					"message": "User not found",
-				})
-			}
-
-			return c.Status(500).JSON(fiber.Map{
-				"message": "Could not retrieve user",
-				"error":   err.Error(),
-			})
-		}
-
-		err = c.BodyParser(user)
+		err := c.BodyParser(user)
 		if err != nil {
 			return c.Status(400).JSON(fiber.Map{
 				"message": "Could not parse Body",
