@@ -47,15 +47,14 @@
         padding: 1rem;
         width: 70%;
         margin-bottom: 2rem;
+        background-color: var(--color-light);
     }
     .message p:first-child {
         margin-bottom: 1rem;
     }
     .message--inc {
-        background-color: var(--color-light);
     }
     .message--out {
-        background-color: var(--color-primary-light);
         margin-left: 60%;
         translate: -45%;
     }

@@ -1,11 +1,32 @@
 <script>
     import { Link } from "svelte-routing";
     import { get } from "./fetch";
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+    const API_KEY = "AIzaSyCjT3qZw8I6SYEqEH1x_681_4czeQB8OIw";
+
     const doPost = async () => {
         const res = await get("/");
         console.log(res);
     };
     doPost();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    let mytip = urlParams.get("tip"); // Get the value of 'category'
+    const generateAI = async (prompt) => {
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({
+            model: "gemini-1.5-flash",
+        });
+        try {
+            const result = await model.generateContent(prompt);
+            mytip = result.response.text();
+            console.log(mytip);
+        } catch (error) {}
+    };
+
+    generateAI(
+        `dont't even have to include any backticks just return the data in a json format, as a series of tasks with list of having whaat to do`,
+    );
 </script>
 
 <main>

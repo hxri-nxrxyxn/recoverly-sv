@@ -1,5 +1,6 @@
 <script>
     import { Link } from "svelte-routing";
+    let duration;
 </script>
 
 <main>
@@ -7,11 +8,16 @@
     <div class="form__box">
         <div class="form__link">
             <label>Goal duration</label>
-            <input type="text" placeholder="Weeks" required />
+            <input
+                type="text"
+                placeholder="Weeks"
+                required
+                bind:value={duration}
+            />
         </div>
     </div>
     <div class="btn__box">
-        <Link to="/goals-gen">
+        <Link to={`/goals-gen?duration=${duration}`}>
             <button class="solid">CONTINUE</button>
         </Link>
     </div>

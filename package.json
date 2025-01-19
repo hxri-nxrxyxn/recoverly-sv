@@ -18,6 +18,7 @@
     "@capacitor/android": "^6.2.0",
     "@capacitor/core": "^6.2.0",
     "@capacitor/storage": "^1.2.5",
+    "@google/generative-ai": "^0.21.0",
     "svelte-routing": "^2.13.0"
   }
 }
