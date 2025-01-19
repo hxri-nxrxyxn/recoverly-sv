@@ -3,54 +3,25 @@
     import { Storage } from "@capacitor/storage";
     const urlParams = new URLSearchParams(window.location.search);
     const duration = urlParams.get("duration"); // Get the value of 'category'
+    import Nav from "./Nav.svelte";
     import { GoogleGenerativeAI } from "@google/generative-ai";
     const API_KEY = "AIzaSyCjT3qZw8I6SYEqEH1x_681_4czeQB8OIw";
-    import Nav from "./Nav.svelte";
-
-    let mytip = $state("");
-    let hasToken = null;
-    const checkUser = async () => {
+    let mytip = ""; // Get the value of 'category'
+    const generateAI = async (prompt) => {
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({
+            model: "gemini-1.5-flash",
+        });
         try {
-            const value = await Storage.get({ key: "id" });
-            const id = value.value;
-            if (!id) {
-                hasToken = false;
-                location.href = "/login";
-            }
-            const response = await fetch(
-                `http://192.168.157.224:8080/api/v1/users/${id}`,
-                {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                },
-            );
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log(data.data);
-                const generateAI = async (prompt) => {
-                    const genAI = new GoogleGenerativeAI(API_KEY);
-                    const model = genAI.getGenerativeModel({
-                        model: "gemini-1.5-flash",
-                    });
-                    try {
-                        const result = await model.generateContent(prompt);
-                        mytip = result.response.text();
-                    } catch (error) {}
-                };
-
-                generateAI(
-                    `this is the data provided by a patient of ours, he is trying to recover his life, please give him a short term plan for recovery, like reduciinig whatever he is using day by and all. here are his details ${data.data.name} and his preferrable duration ${duration}`,
-                );
-            }
-        } catch (error) {
-            console.error("Error:", error);
-        }
+            const result = await model.generateContent(prompt);
+            mytip = result.response.text();
+            console.log(mytip);
+        } catch (error) {}
     };
 
-    checkUser();
+    generateAI(
+        `generate a short term plan for a person to recover from an addiction., only use plain text and limited characters, (something like prepare to quit smoking in 60 days -> high chances of success, each day reduce one chance)`,
+    );
 </script>
 
 <main>
@@ -61,9 +32,9 @@
         <p>{mytip}</p>
     </div>
     <div class="btn__box">
-        <button class="outlined" onclick={checkUser}>REGENERATE</button>
+        <button class="outlined" onclick={generateAI}>REGENERATE</button>
         <br />
-        <Link to={`/tasks?tip=${mytip}`}>
+        <Link to={`/dashboard`}>
             <button class="solid">SAVE</button>
         </Link>
     </div>

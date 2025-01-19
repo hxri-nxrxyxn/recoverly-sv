@@ -17,6 +17,7 @@
   import Profile from "./Profile.svelte";
   import Chatroom from "./Chatroom.svelte";
   import Chat from "./Chat.svelte";
+  import Templates from "./Templates.svelte";
 </script>
 
 <main>
@@ -39,5 +40,6 @@
     <Route path="/profile" component={Profile} />
     <Route path="/chatroom" component={Chatroom} />
     <Route path="/chat" component={Chat} />
+    <Route path="/templates" component={Templates} />
   </Router>
 </main>

@@ -10,7 +10,7 @@
       email: email,
       password: password,
     };
-    const res = await fetch("http://localhost:8080/api/v1/register", {
+    const res = await fetch("http://192.168.183.224:8080/api/v1/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
