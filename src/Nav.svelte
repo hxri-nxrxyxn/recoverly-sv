@@ -1,12 +1,22 @@
 <script>
     import Star from "./assets/noun-star-923969.svg";
     import ProfilePic from "./assets/circle-user.svg";
+
+    const toggleView = () => {};
 </script>
 
 <main>
     <div class="nav">
         <div class="nav__icon">
             <img src={Star} alt="" class="icon" />
+        </div>
+        <div class="nav__dropdown">
+            <p>Home</p>
+            <p>Chatroom</p>
+            <p>Local Events</p>
+            <p>Templates & Guides</p>
+            <p>Service</p>
+            <p>AI Task Generation</p>
         </div>
         <div class="nav__placeholder">hey</div>
         <div class="nav__stats">
@@ -22,6 +32,7 @@
         background-color: white;
         z-index: 99;
         margin-bottom: 0.5rem;
+        position: relative;
     }
     .nav__placeholder {
         flex: 1;
@@ -34,5 +45,19 @@
         display: flex;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+    .nav__dropdown {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: white;
+        width: 100%;
+        height: 100vh;
+        display: none;
+    }
+    .nav__dropdown p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 300;
     }
 </style>
