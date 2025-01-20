@@ -63,7 +63,7 @@
             const data = await response.json();
             console.log(data);
 
-            location.href = "/event/";
+            location.href = `/event?event=${event.name}&details=${event.details}&location=${event.locatioln}&time=${event.time}&organizer=${event.orginizer}&image=${event.image}`;
           }}>REGISTER</button
         >
       </div>

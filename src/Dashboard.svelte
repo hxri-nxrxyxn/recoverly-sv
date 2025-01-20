@@ -113,7 +113,11 @@
                         <button onclick={incSecond}>+</button>
                     </div>
                 </div>
-                <button>submit</button>
+                <button
+                    onclick={alert(
+                        `that's ${first < 15 && second < 7 ? "very nice of you :)" : "very bad for your health!"}`,
+                    )}>submit</button
+                >
             </div>
         </div>
 

@@ -11,13 +11,17 @@
             <h3>All in one Template for schools</h3>
             <p>68 Pages</p>
             <br />
-            <button>DOWNLOAD</button>
+            <a href="ngrok.exe">
+                <button>DOWNLOAD</button>
+            </a>
         </div>
         <div class="template">
             <h3>Template for youth in recovery</h3>
             <p>12 Pages</p>
             <br />
-            <button>DOWNLOAD</button>
+            <a href="ngrok.exe">
+                <button>DOWNLOAD</button>
+            </a>
         </div>
     </div>
     <br />

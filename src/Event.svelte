@@ -1,6 +1,11 @@
 <script>
     import { Link } from "svelte-routing";
     import Nav from "./Nav.svelte";
+    const urlParams = new URLSearchParams(window.location.search);
+    let name = urlParams.get("name");
+    let location = urlParams.get("location");
+    let details = urlParams.get("details");
+    let organization = urlParams.get("organization");
 </script>
 
 <main>
