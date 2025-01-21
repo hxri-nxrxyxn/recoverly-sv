@@ -18,13 +18,13 @@
 
   async function fetchChats() {
     const response = await fetch(
-      "http://localhost:8080/api/v1/chats/recovery",
+      "http://192.168.183.224:8080/api/v1/chats/recovery",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (!response.ok) {
@@ -37,7 +37,7 @@
   }
 
   const sendReply = async () => {
-    const res = await fetch("http://localhost:8080/api/v1/chat", {
+    const res = await fetch("http://192.168.183.224:8080/api/v1/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

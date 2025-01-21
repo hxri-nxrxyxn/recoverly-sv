@@ -9,10 +9,9 @@
     <h1>Anonymous <span>Chatrooms</span></h1>
     <img src={ChatPic} alt="" class="hero" />
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-        laudantium recusandae molestias, odio consequuntur eligendi veniam
-        explicabo accusamus error delectus asperiores unde soluta repellendus
-        exercitationem facilis quasi perspiciatis enim? Exercitationem.
+        You're not alone in this fight. Join our anonymous chatroom to connect
+        with peers, share your story, and find encouragement and understanding
+        in a safe and confidential environment
     </p>
     <div class="chatrooms">
         <Link to="/chat">

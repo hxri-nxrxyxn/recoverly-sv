@@ -27,6 +27,9 @@
         </div>
         <div class="nav__dropdown">
             <p onclick={hideDropDown}>Back</p>
+            <Link to="/dashboard">
+                <p>Dashboard</p>
+            </Link>
             <Link to="/chatroom">
                 <p>Chatroom</p>
             </Link>
@@ -36,9 +39,7 @@
             <Link to="/templates">
                 <p>Templates & Guides</p>
             </Link>
-            <Link to="/service">
-                <p>Service</p>
-            </Link>
+
             <Link to="/goals">
                 <p>AI Task Generation</p>
             </Link>

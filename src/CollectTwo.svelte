@@ -11,12 +11,15 @@
     const value = await Storage.get({ key: "id" });
     const id = value.value;
     console.log(value);
-    const response = await fetch(`http://localhost:8080/api/v1/users/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `http://192.168.183.224:8080/api/v1/users/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const { error } = await response.json();
@@ -33,7 +36,7 @@
 
     console.log(dataaparse.data);
 
-    const res = await fetch(`http://localhost:8080/api/v1/users/${id}`, {
+    const res = await fetch(`http://192.168.183.224:8080/api/v1/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

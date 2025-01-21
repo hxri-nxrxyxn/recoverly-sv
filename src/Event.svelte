@@ -1,6 +1,11 @@
 <script>
     import { Link } from "svelte-routing";
     import Nav from "./Nav.svelte";
+    const urlParams = new URLSearchParams(window.location.search);
+    let name = urlParams.get("name");
+    let location = urlParams.get("location");
+    let details = urlParams.get("details");
+    let organization = urlParams.get("organization");
 </script>
 
 <main>
@@ -10,13 +15,14 @@
         <h1>Anti-drug campaign</h1>
         <h2>National Service Scheme</h2>
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit harum
-            corrupti officia expedita vel! Tempore obcaecati ad unde sint
-            blanditiis recusandae ullam, neque consectetur nostrum. Iusto fugiat
-            tempora sint sapiente.
+            The NSS students of Thrissur are hosting an Anti-Drug Campaign to
+            raise awareness about the dangers of drug abuse and promote a
+            drug-free lifestyle. This initiative aims to educate the community
+            and offer support to those in need. Join us in spreading the message
+            of recovery and building a healthier, drug-free future.
         </p>
         <div class="details__line">
-            <h3>Niagra Falls</h3>
+            <h5>Thrissur UNIT 663</h5>
             <p><b>10AM</b> 11 - 09 - 2024</p>
         </div>
     </div>
@@ -31,5 +37,7 @@
     .details__line {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
     }
 </style>

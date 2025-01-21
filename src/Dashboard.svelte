@@ -45,7 +45,7 @@
                 location.href = "/login";
             }
             const response = await fetch(
-                `http://localhost:8080/api/v1/users/${id}`,
+                `http://192.168.183.224:8080/api/v1/users/${id}`,
                 {
                     method: "GET",
                     headers: {
@@ -71,14 +71,18 @@
         <Nav />
         <div class="pills">
             <div class="pill">
-                <p>LEVEL</p>
+                <p>NEW</p>
             </div>
-            <div class="pill">
-                <p>EVENTS</p>
-            </div>
-            <div class="pill">
-                <p>CHATROOM</p>
-            </div>
+            <Link to="/events">
+                <div class="pill">
+                    <p>EVENTS</p>
+                </div>
+            </Link>
+            <Link to="/chatroom">
+                <div class="pill">
+                    <p>CHATROOM</p>
+                </div>
+            </Link>
         </div>
         <h1>Good morning, <span>Hari</span></h1>
 
@@ -109,7 +113,11 @@
                         <button onclick={incSecond}>+</button>
                     </div>
                 </div>
-                <button onclick={logout}>submit</button>
+                <button
+                    onclick={alert(
+                        `that's ${first < 15 && second < 7 ? "very nice of you :)" : "very bad for your health!"}`,
+                    )}>submit</button
+                >
             </div>
         </div>
 

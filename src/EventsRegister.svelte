@@ -4,7 +4,7 @@
   import Nav from "./Nav.svelte";
 
   const loadevents = async () => {
-    const response = await fetch("http://localhost:8080/api/v1/events", {
+    const response = await fetch("http://192.168.183.224:8080/api/v1/events", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@
             // Use the event's `id` dynamically in the API call
             console.log(event.id);
             const response = await fetch(
-              `http://localhost:8080/api/v1/event/${event.id}`,
+              `http://192.168.183.224:8080/api/v1/event/${event.id}`,
               {
                 method: "GET",
                 headers: {
@@ -63,7 +63,7 @@
             const data = await response.json();
             console.log(data);
 
-            location.href = "/register/" + event.id;
+            location.href = `/event?event=${event.name}&details=${event.details}&location=${event.locatioln}&time=${event.time}&organizer=${event.orginizer}&image=${event.image}`;
           }}>REGISTER</button
         >
       </div>
@@ -76,5 +76,14 @@
 <style>
   .card {
     margin-bottom: 2rem;
+  }
+  .card__image {
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+  .card__image img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
   }
 </style>

@@ -64,8 +64,10 @@
     .progressi {
         width: 89%;
     }
-    .option:focus {
+    .option:hover {
         background-color: var(--color-primary);
+    }
+    .option:hover p {
         color: white;
     }
 </style>
